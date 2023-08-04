@@ -67,12 +67,16 @@ public class StatesAndCapitals
 
         List<StateInfo> firstFiveStates = null;
 
+        firstFiveStates = states.stream().limit(5).collect(toList());
+
         testResults.put("B1", StatesAndCapitalsCheck.basic1(firstFiveStates));
 
         // B2. Submit the last five states
         // Use skip()
 
         List<StateInfo> lastFiveStates = null;
+
+        lastFiveStates = states.stream().skip(45).collect(toList());
 
         testResults.put("B2", StatesAndCapitalsCheck.basic2(lastFiveStates));
 
@@ -81,12 +85,16 @@ public class StatesAndCapitals
 
         List<Integer> firstFiveNumbers = IntStream.range(1, 20).boxed().collect(toList());
 
+        firstFiveNumbers = firstFiveNumbers.stream().limit(5).collect(toList());
+
         testResults.put("B3", StatesAndCapitalsCheck.basic3(firstFiveNumbers));
 
         // B4. From 1-20, submit the last 5 numbers
         // Use skip()
 
         List<Integer> lastFiveNumbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20).collect(toList());
+
+        lastFiveNumbers = lastFiveNumbers.stream().skip(15).collect(toList());
 
         testResults.put("B4", StatesAndCapitalsCheck.basic4(lastFiveNumbers));
 
@@ -95,6 +103,9 @@ public class StatesAndCapitals
         // PS: Don't use states.size(). It's easier and IntelliJ will even warn you not to do things this way. But I want you to understand how to use count() (or counting()).
 
         Long statesNumber = null;
+
+        //tried counting but did not know how to use it.
+        statesNumber = states.stream().count();
 
         testResults.put("B5", StatesAndCapitalsCheck.basic5(statesNumber));
 
@@ -106,12 +117,16 @@ public class StatesAndCapitals
 
         StateInfo cardinalState = null;
 
+        cardinalState = states.stream().filter( s -> s.getStateBird().equals("cardinal")).findAny().orElse(null);
+
         testResults.put("I1", StatesAndCapitalsCheck.int1(cardinalState));
 
         // I2. Find if any state's lowest elevation is less than 0
         // Use anyMatch()
 
         Boolean isAnyStateLessThan0Elevation = null;
+
+        isAnyStateLessThan0Elevation = states.stream().anyMatch(s -> s.getLowestElevationInFeet() < 0);
 
         testResults.put("I2", StatesAndCapitalsCheck.int2(isAnyStateLessThan0Elevation));
 
@@ -120,12 +135,16 @@ public class StatesAndCapitals
 
         Boolean isAnyStateGreaterThan21000Elevation = null;
 
+        isAnyStateGreaterThan21000Elevation = states.stream().anyMatch(s -> s.getHighestElevationInFeet() > 21000);
+
         testResults.put("I3", StatesAndCapitalsCheck.int3(isAnyStateGreaterThan21000Elevation));
 
         // I4. Find if all states have an anthem
         // Use allMatch()
 
         Boolean doAllStatesHaveAnAnthem = null;
+
+        doAllStatesHaveAnAnthem = states.stream().allMatch(s -> s.getStateAnthem() != null);
 
         testResults.put("I4", StatesAndCapitalsCheck.int4(doAllStatesHaveAnAnthem));
 
@@ -134,6 +153,8 @@ public class StatesAndCapitals
         // Can use String.split()
 
         Boolean doNoStatesHaveAOneWordMotto = null;
+
+        doNoStatesHaveAOneWordMotto = states.stream().noneMatch(s -> s.getStateMotto().split("").length > 1 );
 
         testResults.put("I5", StatesAndCapitalsCheck.int5(doNoStatesHaveAOneWordMotto));
 
@@ -144,6 +165,8 @@ public class StatesAndCapitals
 
         Double averageYearlyPrecipitationAcrossStateCapitals = null;
 
+        averageYearlyPrecipitationAcrossStateCapitals = states.stream().collect(averagingDouble(s -> s.getCapital().getAverageYearlyPrecipitationInInches()));
+
         testResults.put("A11", StatesAndCapitalsCheck.adv11(averageYearlyPrecipitationAcrossStateCapitals));
 
         // A12. Submit the total yearly precipitation across all state capitals
@@ -151,6 +174,8 @@ public class StatesAndCapitals
         // Or use mapToInt() and sum()
 
         Integer totalYearlyPrecipitationAcrossStateCapitals = null;
+
+        totalYearlyPrecipitationAcrossStateCapitals = states.stream().collect(summingInt(s -> s.getCapital().getAverageYearlyPrecipitationInInches()));
 
         testResults.put("A12", StatesAndCapitalsCheck.adv12(totalYearlyPrecipitationAcrossStateCapitals));
 

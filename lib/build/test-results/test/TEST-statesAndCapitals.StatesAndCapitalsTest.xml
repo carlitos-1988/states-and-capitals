@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="statesAndCapitals.StatesAndCapitalsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-03T23:36:40" hostname="MacBook-Pro.local" time="0.109">
+<testsuite name="statesAndCapitals.StatesAndCapitalsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-04T01:51:49" hostname="MacBook-Pro.local" time="0.154">
   <properties/>
-  <testcase name="Test_states_and_capitals()" classname="statesAndCapitals.StatesAndCapitalsTest" time="0.109"/>
-  <system-out><![CDATA[{B1=false, B2=false, B3=false, B4=false, B5=false, I1=false, I2=false, I3=false, I4=false, I5=false, A11=false, A12=false, A13=false, A14=false, A21=false, A22=false, A23=false, A24=false, A25=false, A31=false, A32=false, A33=false, A41=false, A42=false, A43=false, E1=false, E2=false, E3=false, E4=false, E5=false}
+  <testcase name="Test_states_and_capitals()" classname="statesAndCapitals.StatesAndCapitalsTest" time="0.154"/>
+  <system-out><![CDATA[{B1=true, B2=true, B3=true, B4=true, B5=true, I1=true, I2=true, I3=true, I4=true, I5=true, A11=true, A12=true, A13=false, A14=false, A21=false, A22=false, A23=false, A24=false, A25=false, A31=false, A32=false, A33=false, A41=false, A42=false, A43=false, E1=false, E2=false, E3=false, E4=false, E5=false}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
